@@ -74,6 +74,7 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.appcompat)
     implementation(libs.material3)
+    implementation(libs.androidx.constraintlayout)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
