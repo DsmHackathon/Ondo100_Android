@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.saehyun.ondo100.feature.bank.BankActivity
 import com.saehyun.ondo100.feature.call.CallActivity
+import com.saehyun.ondo100.feature.game.GameActivity
 import com.saehyun.ondo100.feature.kakao.KakaoActivity
 import com.saehyun.ondo100.feature.message.MessageActivity
 import com.saehyun.ondo100.feature.think.ThinkActivity
@@ -17,7 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navigateToBank()
+        navigateToGame()
+    }
+
+    private fun navigateToGame() {
+        startActivityWithAnimation<GameActivity>()
     }
 
     private fun navigateToBank() {

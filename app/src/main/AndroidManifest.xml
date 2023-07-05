@@ -34,8 +34,12 @@
         <activity
             android:name=".feature.call.CallActivity"
             android:exported="false" />
-        <activity android:name=".feature.bank.BankActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".feature.bank.BankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.game.GameActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
