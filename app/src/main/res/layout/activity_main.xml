@@ -4,15 +4,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SubActivity"
+    android:background="#F9F9F9">
 
     <TextView
+        android:id="@+id/text_dobak1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="127dp"
+        android:text="청소년 온라인도박\n당신은 얼마나 알고 있나요?"
+        android:textColor="@color/black"
+        android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="남자 청소년 259명 중에서 "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/text_dobak1"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="30dp"
+        />
+
+
+    <TextView
+        android:id="@+id/text_line1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="'불법 인터넷 도박'"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/text_dobak1"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="125dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/text_line3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\n사이트에 방문해 본 경험이 있다고 응답한 비율은\n23.6%로 나타났고,\n\n인터넷 도박게임을 해본 경험이 있는 청소년\n또한 25.5%에 이르렀다.\n\n도박중독의 과정 속에서 필히 경험하게 되는 돈을\n잃게 되는 손실기부터는 도박으로 잃은 돈을 만회하는데\n모든 사고가 집중돼 자신이 엄청난 피해를 입더라도\n돈을 빌리면서 도박에 몰입하는 상태가 됩니다.\n\n이러한 행동이 반복될수록 도박의 굴레에서 더욱 벗어나기\n힘들어 집니다. 결국, "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/text_dobak1"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/text_line4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="283dp"
+        android:text="대인기피, 자신감의 상실,"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="150dp"
+        app:layout_constraintTop_toBottomOf="@+id/text_dobak1" />
+
+    <TextView
+        android:id="@+id/text_line5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="304dp"
+        android:layout_marginLeft="30dp"
+        android:text="피해적인 사고, 학업문제"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_dobak1" />
+
+    <TextView
+        android:id="@+id/text_line6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="등이 발생하여"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/text_dobak1"
+        android:layout_marginTop="304dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="174dp"
+        />
+
+    <TextView
+        android:id="@+id/text_line7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\n학교 적응이 어려워집니다."
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/text_dobak1"
+        android:layout_marginTop="304dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="30dp"
+        />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:width="335dp"
+        android:height="52dp"
+        android:backgroundTint="#12017F"
+        android:gravity="center"
+        android:text="다음으로"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="642dp"
+        android:background="@drawable/radius"/>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
