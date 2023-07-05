@@ -2,6 +2,7 @@ package com.saehyun.ondo100.feature.kakao
 
 import androidx.lifecycle.ViewModel
 import com.saehyun.ondo100.R
+import com.saehyun.ondo100.feature.Message
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.delay

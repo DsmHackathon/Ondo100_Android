@@ -22,10 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".feature.kakao.KakaoActivity"
-            android:exported="false"/>
-        <activity android:name=".feature.think.ThinkActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".feature.kakao.KakaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.think.ThinkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.message.MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.call.CallActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
