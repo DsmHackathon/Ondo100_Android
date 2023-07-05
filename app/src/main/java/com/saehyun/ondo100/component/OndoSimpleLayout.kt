@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun OndoSimpleLayout(
-    topAppBar: @Composable () -> Unit,
+    topAppBar: (@Composable () -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
     bottomContent: (@Composable () -> Unit)? = null,
 ) {
@@ -24,7 +24,9 @@ fun OndoSimpleLayout(
         modifier = Modifier.fillMaxSize(),
     ) {
         Column {
-            topAppBar()
+            if (topAppBar != null) {
+                topAppBar()
+            }
 
             Column(
                 modifier = Modifier
