@@ -123,10 +123,10 @@ fun OnboardScreen2(
                 Spacer(space = 30.dp)
                 Text(
                     text = """
-            이 앱은 실제 학생들이 겼었던
-        사이버폭력을 바탕으로 재구성되었습니다.
-        직접 겪어보지 않으면 누구도 모르는 폭력,
-        단 몇 분만이라도 사이버폭력을 체험해 보세요.
+        이 앱은 실제 학생들이 겼었던
+        온라인 도력을 바탕으로 재구성되었습니다.
+        직접 겪어보지 않으면 누구도 모르는 도박,
+        단 몇 분만이라도 도박을 체험해 보세요.
         """.trimIndent(),
                     fontFamily = pretendardFamily,
                     fontSize = 14.sp,

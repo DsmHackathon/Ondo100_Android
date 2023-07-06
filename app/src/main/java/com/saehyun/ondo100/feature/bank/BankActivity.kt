@@ -50,7 +50,7 @@ class BankActivity : ComponentActivity() {
 
         setContent {
             BankScreen(
-                name = "임세현",
+                name = "김민식",
                 senderMonkey = senderMonkey,
                 senderAccount = 103938271,
                 money = senderMonkey,

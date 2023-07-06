@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -41,7 +42,7 @@ class VoiceActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             VoiceScreen(
-                name = "임세현",
+                name = "김민식",
                 phoneNumber = "010-8757-3315",
                 onAccept = {
                     finishWithAnimation()
@@ -113,6 +114,7 @@ fun VoiceScreen(
                     .padding(
                         horizontal = 40.dp
                     ),
+                contentScale = ContentScale.FillWidth,
             )
             Spacer(space = 42.dp)
             Image(

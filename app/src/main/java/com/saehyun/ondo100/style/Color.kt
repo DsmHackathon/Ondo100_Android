@@ -11,10 +11,10 @@ object OndoColor {
     val PurpleGrey40 = Color(0xFF625b71)
     val Pink40 = Color(0xFF7D5260)
 
-    val Main1 = Color(0xFF27B062)
-    val Main2 = Color(0xFF3AC676)
-    val Main3 = Color(0xFF9EDDB9)
-    val Main4 = Color(0xFFC1F1D6)
+    val Main1 = Color(0xFF12017F)
+    val Main2 = Color(0xFF9A93C6)
+    val Main3 = Color(0xFF9A93C6)
+    val Main4 = Color(0xFF9A93C6)
 
     val Black = Color.Black
     val Gray900 = Color(0xFF343434)

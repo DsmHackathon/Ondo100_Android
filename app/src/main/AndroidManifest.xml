@@ -55,6 +55,8 @@
         <activity
             android:name=".feature.think.EndingActivity"
             android:exported="false" />
+        <activity android:name=".feature.think.FinishActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

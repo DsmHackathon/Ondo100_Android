@@ -41,7 +41,7 @@ class CallActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CallScreen(
-                "임세현",
+                "김민식",
                 "010-8757-3315",
                 onAccept = {
                     navigateToVoice()

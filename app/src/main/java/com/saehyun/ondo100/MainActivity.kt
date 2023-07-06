@@ -39,6 +39,8 @@ import com.saehyun.ondo100.feature.kakao.KakaoActivity
 import com.saehyun.ondo100.feature.message.MessageActivity
 import com.saehyun.ondo100.feature.onboard.OnboardActivity
 import com.saehyun.ondo100.feature.think.EndingActivity
+import com.saehyun.ondo100.feature.think.FinishActivity
+import com.saehyun.ondo100.feature.think.FinishScreen
 import com.saehyun.ondo100.feature.think.ThinkActivity
 import com.saehyun.ondo100.style.pretendardFamily
 import com.saehyun.ondo100.util.Extras
@@ -199,6 +201,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 )
             }
+
             19 -> {
                 step++
                 startActivityWithAnimation<EndingActivity>(
@@ -207,15 +210,18 @@ class MainActivity : AppCompatActivity() {
                     }
                 )
             }
+
             20 -> {
+                step++
                 startActivityWithAnimation<CallActivity>(
                     intentBuilder = {
                         putExtra(Extras.THINK_STEP, 3)
                     }
                 )
             }
-            21 -> {
 
+            21 -> {
+                startActivityWithAnimation<FinishActivity>()
             }
         }
     }

@@ -149,7 +149,7 @@ fun MessageScreen(
                         }
                     }
                 }
-                Spacer(space = 32.dp)
+                Spacer(space = 64.dp)
             },
             bottomContent = {
                 KakaoBottomLayout()

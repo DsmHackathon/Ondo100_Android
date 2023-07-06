@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -9,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="아이디"
         android:textColor="#A0A0A0"
         android:textSize="14sp"
@@ -91,7 +92,7 @@
         android:layout_height="52dp"
         android:layout_marginBottom="36dp"
         android:background="@drawable/join_radius"
-        android:backgroundTint="@color/btn_join"
+        android:backgroundTint="#FFEA4D3E"
         android:text="회원가입"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -113,11 +114,12 @@
         android:id="@+id/imageView"
         android:layout_width="180dp"
         android:layout_height="40dp"
-        android:layout_marginTop="215dp"
+        android:layout_marginBottom="12dp"
         android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="@+id/img_smile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

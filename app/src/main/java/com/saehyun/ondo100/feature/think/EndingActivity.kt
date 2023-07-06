@@ -8,6 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -19,7 +20,7 @@ import com.saehyun.ondo100.util.ondoClickable
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class EndingActivity: ComponentActivity() {
+class EndingActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,25 +37,29 @@ class EndingActivity: ComponentActivity() {
 fun EndingScreen(
     onPrevious: () -> Unit
 ) {
-    val imageRes = remember { mutableStateOf(R.drawable.bg_ending_1) }
+    val step = remember { mutableStateOf(0) }
+
+    LaunchedEffect(key1 = step) {
+        if(step.value == 3) {
+            onPrevious()
+        }
+    }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .ondoClickable {
-                if (imageRes.value == R.drawable.bg_ending_1) {
-                    imageRes.value = R.drawable.bg_ending_2
-                }
-                if (imageRes.value == R.drawable.bg_ending_2) {
-                    imageRes.value = R.drawable.bg_ending_3
-                }
-                if (imageRes.value == R.drawable.bg_ending_3) {
-                    onPrevious()
-                }
+                step.value = step.value + 1
             }
     ) {
         Image(
-            painter = painterResource(id = imageRes.value),
+            painter = painterResource(
+                id = when (step.value) {
+                    0 -> R.drawable.bg_ending_1
+                    1 -> R.drawable.bg_ending_2
+                    else -> R.drawable.bg_ending_3
+                }
+            ),
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
