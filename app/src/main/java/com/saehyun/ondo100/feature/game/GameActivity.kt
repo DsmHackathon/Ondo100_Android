@@ -1,7 +1,6 @@
 package com.saehyun.ondo100.feature.game
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -16,6 +15,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.Start
@@ -29,7 +31,13 @@ import androidx.compose.ui.unit.sp
 import com.saehyun.ondo100.R
 import com.saehyun.ondo100.component.Spacer
 import com.saehyun.ondo100.style.pretendardFamily
+import com.saehyun.ondo100.util.Extras
+import com.saehyun.ondo100.util.ondoClickable
+import com.saehyun.ondo100.util.randomInt
+import com.saehyun.ondo100.util.rememberToast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class GameActivity : ComponentActivity() {
@@ -37,15 +45,28 @@ class GameActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val monkey = intent.getIntExtra(Extras.GAME_MONEY, 0)
         setContent {
-            GameScreen()
+            GameScreen(
+                initMonkey = monkey
+            )
         }
 
     }
 }
 
 @Composable
-fun GameScreen() {
+fun GameScreen(
+    initMonkey: Int,
+) {
+    val gameImg = remember {
+        mutableStateOf(R.drawable.bg_game_inner_1)
+    }
+    val coroutineScope = rememberCoroutineScope()
+    val toast = rememberToast()
+    val money = remember { mutableStateOf(initMonkey) }
+    val batMoney = remember { mutableStateOf(0) }
+
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -81,7 +102,7 @@ fun GameScreen() {
                 )
                 Spacer(space = 2.dp)
                 Text(
-                    text = "￦ 300,000",
+                    text = "￦ ${money.value}",
                     fontFamily = pretendardFamily,
                     fontWeight = FontWeight.Normal,
                     fontSize = 16.sp,
@@ -92,7 +113,28 @@ fun GameScreen() {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFFFFFFF2)),
+                    .background(Color(0xFFFFFFF2))
+                    .ondoClickable {
+                        if (randomInt() % 2 == 0) {
+                            coroutineScope.launch {
+                                gameImg.value = R.drawable.bg_game_inner_2
+                                toast.invoke("이번 회차 정답은 홀입니다. 돈을 잃었어요 ㅜㅜ")
+                                delay(2000L)
+                                gameImg.value = R.drawable.bg_game_inner_1
+                                money.value = money.value - batMoney.value
+                                batMoney.value = 0
+                            }
+                        } else {
+                            coroutineScope.launch {
+                                gameImg.value = R.drawable.bg_game_inner_3
+                                toast.invoke("이번 회차 정답은 짝입니다. 돈을 잃었어요 ㅜㅜ")
+                                delay(2000L)
+                                gameImg.value = R.drawable.bg_game_inner_1
+                                money.value = money.value - batMoney.value
+                                batMoney.value = 0
+                            }
+                        }
+                    },
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Box(
@@ -112,7 +154,7 @@ fun GameScreen() {
                 }
                 Spacer(space = 16.dp)
                 Image(
-                    painter = painterResource(id = R.drawable.bg_game_1),
+                    painter = painterResource(id = gameImg.value),
                     contentDescription = null,
                     modifier = Modifier.height(180.dp),
                     contentScale = ContentScale.FillHeight,
@@ -135,32 +177,56 @@ fun GameScreen() {
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Image(
-                    modifier = Modifier.size(32.dp),
+                    modifier = Modifier
+                        .size(32.dp)
+                        .ondoClickable {
+                            batMoney.value = batMoney.value + 1000
+                        },
                     painter = painterResource(id = R.drawable.bg_coin_1k),
                     contentDescription = null,
                 )
                 Image(
-                    modifier = Modifier.size(32.dp),
+                    modifier = Modifier
+                        .size(32.dp)
+                        .ondoClickable {
+                            batMoney.value = batMoney.value + 10000
+                        },
                     painter = painterResource(id = R.drawable.bg_coin_10k),
                     contentDescription = null,
                 )
                 Image(
-                    modifier = Modifier.size(32.dp),
+                    modifier = Modifier
+                        .size(32.dp)
+                        .ondoClickable {
+                            batMoney.value = batMoney.value + 50000
+                        },
                     painter = painterResource(id = R.drawable.bg_coin_50k),
                     contentDescription = null,
                 )
                 Image(
-                    modifier = Modifier.size(32.dp),
+                    modifier = Modifier
+                        .size(32.dp)
+                        .ondoClickable {
+                            batMoney.value = batMoney.value + 100000
+                        },
                     painter = painterResource(id = R.drawable.bg_coin_100k),
                     contentDescription = null,
                 )
                 Image(
-                    modifier = Modifier.size(32.dp),
+                    modifier = Modifier
+                        .size(32.dp)
+                        .ondoClickable {
+                            batMoney.value = batMoney.value + 500000
+                        },
                     painter = painterResource(id = R.drawable.bg_coin_500k),
                     contentDescription = null,
                 )
                 Image(
-                    modifier = Modifier.size(32.dp),
+                    modifier = Modifier
+                        .size(32.dp)
+                        .ondoClickable {
+                            batMoney.value = batMoney.value + 1000000
+                        },
                     painter = painterResource(id = R.drawable.bg_coin_1m),
                     contentDescription = null,
                 )
@@ -179,7 +245,7 @@ fun GameScreen() {
                 )
                 Spacer(space = 2.dp)
                 Text(
-                    text = "￦ 300,000",
+                    text = "￦ ${batMoney.value}",
                     fontFamily = pretendardFamily,
                     fontWeight = FontWeight.Normal,
                     fontSize = 16.sp,

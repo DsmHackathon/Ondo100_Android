@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,14 +15,22 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.saehyun.ondo100.R
 import com.saehyun.ondo100.style.pretendardFamily
+import com.saehyun.ondo100.util.Extras
+import com.saehyun.ondo100.util.finishWithAnimation
 import com.saehyun.ondo100.util.ondoClickable
 import dagger.hilt.android.AndroidEntryPoint
+import org.orbitmvi.orbit.viewmodel.observe
 
 @AndroidEntryPoint
 class ThinkActivity : ComponentActivity() {
@@ -31,12 +41,34 @@ class ThinkActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+            val step = intent.getIntExtra(Extras.THINK_STEP, 1)
             val state = vm.container.stateFlow.collectAsState().value
 
             ThinkScreen(
                 state = state,
             ) {
-                vm.nextStep1()
+                when (step) {
+                    1 -> vm.nextStep1()
+                    2 -> vm.nextStep2()
+                    3 -> vm.nextStep3()
+                }
+            }
+
+            vm.observe(
+                lifecycleOwner = this,
+                sideEffect = ::handleSideEffect,
+            )
+        }
+    }
+
+    private fun handleSideEffect(sideEffect: ThinkSideEffect) {
+        when (sideEffect) {
+            is ThinkSideEffect.Back -> {
+                finishWithAnimation()
+            }
+
+            is ThinkSideEffect.Ending -> {
+
             }
         }
     }

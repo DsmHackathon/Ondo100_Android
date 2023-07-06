@@ -18,8 +18,9 @@ class KakaoActivity : ComponentActivity() {
 
         val name = intent.getStringExtra(Extras.NAME) ?: ""
         val date = intent.getStringExtra(Extras.DATE) ?: ""
+        val step = intent.getIntExtra(Extras.KAKAO_STEP, 1)
 
-        vm.startTalk(2)
+        vm.startTalk(step)
 
         setContent {
             val state = vm.container.stateFlow.collectAsState().value

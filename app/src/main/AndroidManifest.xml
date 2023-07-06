@@ -40,6 +40,21 @@
         <activity
             android:name=".feature.game.GameActivity"
             android:exported="false" />
+        <activity
+            android:name=".feature.onboard.OnboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.call.VoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.game.JoinGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.game.JoinGame2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.think.EndingActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

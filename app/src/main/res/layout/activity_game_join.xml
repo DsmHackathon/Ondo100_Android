@@ -8,13 +8,13 @@
         android:id="@+id/text_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:text="아이디"
+        android:textColor="#A0A0A0"
         android:textSize="14sp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="276dp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="20dp"
-        android:textColor="#A0A0A0"/>
+        app:layout_constraintTop_toBottomOf="@+id/img_smile" />
 
     <EditText
         android:id="@+id/edit_id"
@@ -26,10 +26,9 @@
         android:layout_marginLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginRight="20dp"
-        android:hint="soyeonkim0227"
-        android:singleLine="true"
+        android:hint="아이디 입력"
         android:textSize="16sp"
-        android:textColorHint="#000"
+        android:textColorHint="#C3C3C3"
         android:background="@drawable/join_border"/>
 
     <TextView
@@ -54,9 +53,9 @@
         android:layout_marginLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginRight="20dp"
-        android:hint="dkssudzz56!"
+        android:hint="비밀번호 입력"
         android:textSize="16sp"
-        android:textColorHint="#000"
+        android:textColorHint="#C3C3C3"
         android:background="@drawable/join_border"/>
 
     <TextView
@@ -81,25 +80,24 @@
         android:layout_marginLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginRight="20dp"
-        android:hint="dkssudzz56!"
+        android:hint="비밀번호 확인"
         android:textSize="16sp"
-        android:textColorHint="#000"
+        android:textColorHint="#C3C3C3"
         android:background="@drawable/join_border"/>
 
     <Button
         android:id="@+id/btn_join"
         android:layout_width="335dp"
         android:layout_height="52dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="628dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="#EA4D3E"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/join_radius"
+        android:backgroundTint="@color/btn_join"
         android:text="회원가입"
-        android:textSize="16sp"
         android:textColor="@color/white"
-        />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/img_smile"
@@ -112,13 +110,14 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="180dp"
         android:layout_height="40dp"
-        android:src="@drawable/logo"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="215dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

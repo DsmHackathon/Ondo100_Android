@@ -5,6 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.toPersistentList
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
+import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
 
@@ -43,6 +44,13 @@ class ThinkViewModel(
         "대출 한 번만 더 받자"
     )
 
+    private val message3 = mutableListOf(
+        "이걸 갚을 자신이 없는데",
+        "우리 집은 어쩌지?",
+        "내 가족들은..?",
+        "내가 죽는게 모두에게 행복할거야",
+    )
+
     fun nextStep1() = intent {
         if (message1.isNotEmpty()) {
             val element = message1.removeAt(0)
@@ -50,6 +58,8 @@ class ThinkViewModel(
             reduce {
                 state.copy(thinks = state.thinks.toPersistentList().add(element))
             }
+        } else {
+            postSideEffect(ThinkSideEffect.Back)
         }
     }
 
@@ -60,6 +70,20 @@ class ThinkViewModel(
             reduce {
                 state.copy(thinks = state.thinks.toPersistentList().add(element))
             }
+        } else {
+            postSideEffect(ThinkSideEffect.Back)
+        }
+    }
+
+    fun nextStep3() = intent {
+        if (message3.isNotEmpty()) {
+            val element = message3.removeAt(0)
+
+            reduce {
+                state.copy(thinks = state.thinks.toPersistentList().add(element))
+            }
+        } else {
+            postSideEffect(ThinkSideEffect.Back)
         }
     }
 }

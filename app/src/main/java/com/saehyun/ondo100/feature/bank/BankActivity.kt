@@ -2,6 +2,7 @@ package com.saehyun.ondo100.feature.bank
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -29,6 +30,9 @@ import androidx.compose.ui.unit.sp
 import com.saehyun.ondo100.R
 import com.saehyun.ondo100.component.Spacer
 import com.saehyun.ondo100.style.pretendardFamily
+import com.saehyun.ondo100.util.Extras
+import com.saehyun.ondo100.util.finishWithAnimation
+import com.saehyun.ondo100.util.ondoClickable
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,13 +40,28 @@ class BankActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val step = intent.getIntExtra(Extras.BANK_STEP, 1)
+
+        val senderMonkey = when (step) {
+            1 -> 300000
+            2 -> 1000000
+            else -> 10000000
+        }
+
         setContent {
             BankScreen(
                 name = "임세현",
-                senderMonkey = 300000,
-                senderAccount = 0,
-                money = 10000,
-            )
+                senderMonkey = senderMonkey,
+                senderAccount = 103938271,
+                money = senderMonkey,
+            ) {
+                Toast.makeText(
+                    applicationContext,
+                    "스마일에 ${senderMonkey} 원을 송금했어요!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                finishWithAnimation()
+            }
         }
     }
 }
@@ -53,6 +72,7 @@ fun BankScreen(
     senderMonkey: Int,
     senderAccount: Int,
     money: Int,
+    onSend: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -115,7 +135,11 @@ fun BankScreen(
         ) {
             Image(painter = painterResource(id = R.drawable.ic_toss), contentDescription = null)
             Spacer(space = 12.dp)
-            Column {
+            Column(
+                modifier = Modifier.ondoClickable {
+                    onSend()
+                }
+            ) {
                 Text(
                     text = "스마일에게 ${senderMonkey}원 보내실건가요?",
                     fontSize = 12.sp,
