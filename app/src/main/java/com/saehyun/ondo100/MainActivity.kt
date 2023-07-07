@@ -286,6 +286,8 @@ fun MainScreen(
             fontSize = 12.sp,
             fontFamily = pretendardFamily,
             fontWeight = FontWeight.Normal,
+            color = Color.White,
+
         )
         Spacer(space = 20.dp)
         Row(

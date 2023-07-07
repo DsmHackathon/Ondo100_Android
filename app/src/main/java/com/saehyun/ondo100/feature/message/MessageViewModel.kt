@@ -87,7 +87,7 @@ class MessageViewModel(
 
     override val container = container<MessageState, MessageSideEffect>(MessageState())
 
-    private val TalkDelay: Long = 1000L
+    private val TalkDelay: Long = 700L
 
     fun startTalk() = intent {
         message.forEach { talk ->

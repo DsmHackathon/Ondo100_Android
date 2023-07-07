@@ -17,7 +17,7 @@ class ThinkViewModel(
     override val container = container<ThinkState, ThinkSideEffect>(ThinkState())
 
     private val message1 = mutableListOf(
-        "아... X발",
+        "아... 진짜",
         "거기서 풀배팅을 하면 안됐는데...",
         "이거 좀만 더 따면 될거 같은데",
         "한 번만...",
@@ -37,7 +37,7 @@ class ThinkViewModel(
         "복구해야 하는데......",
         "돈.. 한 번만 더 빌려볼까?",
         "내 돈도 찾고! 주완이 돈도 찾고!",
-        "X발 모르겠다",
+        "에라 모르겠다",
         "어차피 아까도 원점이었는데...",
         "또... 따지 않을까?",
         "복구할 때 까지만 하는거야..!",

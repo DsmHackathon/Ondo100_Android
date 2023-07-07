@@ -15,7 +15,7 @@ import org.orbitmvi.orbit.viewmodel.container
 private object KakaoTalkList {
     val first = immutableListOf(
         Message(
-            "야 ㅋㅋㅋ X발 소연아",
+            "야 ㅋㅋㅋ 아니 소연아",
         ),
         Message(
             "나 여기서 돈 3에서 300까지 뿔리고 마감쳤거든?"
@@ -51,15 +51,15 @@ private object KakaoTalkList {
     )
     val second = immutableListOf(
         Message(
-            "아.. X발 30에서 100까지 뿔렸는데",
+            "아.. 진짜 30에서 100까지 뿔렸는데",
             true
         ),
         Message(
-            "풀배팅해서 다 잃었어 X발;;;",
+            "풀배팅해서 다 잃었어;;;",
             true,
         ),
         Message(
-            "병X 내가 그럴 줄 알았다 ㅋㅋㅋㅋ"
+            "내가 그럴 줄 알았다 ㅋㅋㅋㅋ"
         ),
         Message(
             "ㅋㅋㅋㅋㅋㅋㅋ"
@@ -116,7 +116,7 @@ class KakaoViewModel(
 
     override val container = container<KakaoState, KakaoSideEffect>(KakaoState())
 
-    private val TalkDelay: Long = 1000L
+    private val TalkDelay: Long = 700L
 
     fun startTalk(step: Int) = intent {
         val talks = if (step == 1) KakaoTalkList.first else KakaoTalkList.second

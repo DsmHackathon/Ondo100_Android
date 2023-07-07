@@ -148,6 +148,7 @@ fun MessageScreen(
                             }
                         }
                     }
+                    Spacer(space = 64.dp)
                 }
                 Spacer(space = 64.dp)
             },

@@ -99,9 +99,11 @@ fun OndoLargeButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean,
+    enabledColor: Color = OndoColor.Main1,
+    disableColor: Color = OndoColor.Main3,
     onClick: () -> Unit,
 ) {
-    val backgroundColor = if (enabled) OndoColor.Main1 else OndoColor.Main3
+    val backgroundColor = if (enabled) enabledColor else disableColor
 
     Box(
         modifier = modifier
